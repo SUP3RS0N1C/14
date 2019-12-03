@@ -2,23 +2,27 @@
 #include <stdlib.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-void main(int argc, char *argv[]) {
-	char *pc = NULL;
-	int i;
+struct Book{
+	int number;
+	char title[10];
+};
+
+void main(void){
+	struct Book *p;
 	
-	pc = (char*)malloc(100*sizeof(char));
-	if(pc==NULL){
-		printf("memory error\n");
-		exit(1);
+	p = (struct Book*)malloc(2*sizeof(struct Book));
+	
+	if (p==NULL){
+		printf("memory assignment error\n");
+		return;
 	}
 	
-	for(i=0;i<26;i++)
-	{
-		pc[i] = 'a'+1;
-	}
-	pc[i] = 0;
-	printf("%s\n",pc);
-	free(pc);
+	p->number = 1;
+	strcpy(p->title, "C Programming");
+	
+	(p+1)->number = 2;
+	strcpy((p+1)->title, "Electronics");
+	
+	free(p);
+	return====================================================================================================================================================================================================================================================================================================================================
 }
-
-
